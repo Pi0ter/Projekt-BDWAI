@@ -30,7 +30,8 @@ public partial class _Default : System.Web.UI.Page
     {
         GridViewRow row = GridView1.SelectedRow;
 
-        Response.Redirect("~/Default2.aspx?zamow=" + row.Cells[2].Text);
+        Response.Redirect("~/Default2.aspx?zamow=" + row.Cells[1].Text+"&xd="+ row.Cells[6].Text);
+        //HttpContext.Current.Session["ilosc"] = row.Cells[6].Text;
     }
 
     protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)

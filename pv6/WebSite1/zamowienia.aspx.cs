@@ -25,6 +25,6 @@ public partial class zamowienia : System.Web.UI.Page
     {
         GridViewRow row = GridView1.SelectedRow;
 
-        Response.Redirect("~/moderacja.aspx?idzamowienia=" + row.Cells[2].Text);
+        Response.Redirect("~/moderacja.aspx?idzamowienia=" + row.Cells[1].Text);
     }
 }

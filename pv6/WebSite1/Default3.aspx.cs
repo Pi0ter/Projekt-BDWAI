@@ -11,14 +11,17 @@ public partial class Default3 : System.Web.UI.Page
     SqlConnection con = new SqlConnection("Data Source=SAMSUNGSMARTFRI;Initial Catalog=projekt;Integrated Security=True");
     static SqlDataReader dr;
     SqlCommand cmd;
-    int id_towaru ;
-    int ilosc_towaru ;
-    int zostalo;
+    static int id_towaru;
+    static int ilosc_towaru;
+    static int zostalo;
 
     protected void Page_Load(object sender, EventArgs e)
     {
         id_towaru = Int32.Parse(Request.QueryString["zamow"]);
         ilosc_towaru = Int32.Parse(Request.QueryString["ilosc"]);
+        zostalo = Int32.Parse(Request.QueryString["xd"]);
+        
+
         if (HttpContext.Current.Session["login"] != null)
         {
             Button1.Visible = true;
@@ -40,7 +43,10 @@ public partial class Default3 : System.Web.UI.Page
         Label2.Text += " Pochodzenie: "+dr[1].ToString();
         Label2.Text += " Producent: "+dr[2].ToString();
         Label2.Text += " Zakupiona ilosc: "+ilosc_towaru.ToString();
-        zostalo = Int32.Parse(dr[3].ToString()) - ilosc_towaru;
+        //Response.Redirect("~/Default.aspx?xd=" + dr[4].ToString());
+        //int temp = Int32.Parse(dr[3].ToString());
+        //Response.Redirect("~/Default.aspx?xd="+temp.ToString());
+        zostalo = zostalo - ilosc_towaru;
 
 
         con.Close();

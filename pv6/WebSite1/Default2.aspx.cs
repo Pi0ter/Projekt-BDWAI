@@ -47,15 +47,16 @@ public partial class Default2 : System.Web.UI.Page
     {
         int zam = Int32.Parse(TextBox1.Text);
 
-        if (zam >= ilosc)
-        {
-            zam = ilosc;
-        }
-        else if (zam < 1)
-        {
-            zam = 1;
-        }
+        //if (zam >= ilosc)
+        //{
+        //    zam = ilosc;
+        //}
+        //else if (zam < 1)
+        //{
+        //    zam = 1;
+        //}
 
-        Response.Redirect("~/Default3.aspx?zamow=" + Request.QueryString["zamow"]+"&ilosc="+ zam.ToString());
+
+        Response.Redirect("~/Default3.aspx?zamow=" + Request.QueryString["zamow"]+"&ilosc="+ zam.ToString() +"&xd="+ Request.QueryString["xd"]);
     }
 }
